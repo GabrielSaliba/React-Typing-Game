@@ -4,9 +4,12 @@ import wordsList from "./resources/words.json";
 const MAX_TYPED_KEYS = 35;
 
 const getWord = () => {
-  const index = Math.floor(Math.random() * wordsList.length);
-  const word = wordsList[index];
-  return word.toLowerCase();
+  let word = null;
+  do {
+    const index = Math.floor(Math.random() * wordsList.length);
+    word = wordsList[index].toLowerCase();
+  } while (word.length > 8)
+  return word
 }
 
 const Word = ({ word, validkeys }) => {
